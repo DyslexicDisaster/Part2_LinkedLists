@@ -143,6 +143,17 @@ public class LinkedList {
         this.maxSize = max;
     }
 
+    /**
+     * Adds all Songs from the given array to the end of the list.
+     *
+     * @param songs The array of Songs to be added.
+     */
+    public void addAll(Song[] songs) {
+        for (int i = 0; i < songs.length; i++) {
+            add(songs[i]);
+        }
+    }
+
     protected static class Node {
         private Song data;
         private Node next;
