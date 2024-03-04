@@ -10,13 +10,14 @@ public class LinkedList {
     private Node head;
     private Node tail;
     private int numElements;
+    private int maxSize;
 
     /**
      * default constructor
      */
     public LinkedList() {
     }
-
+/*
     /**
      *
      * parameterized constructor
@@ -24,11 +25,11 @@ public class LinkedList {
      * @param head the first node to be added to the list
      * @param tail the last node to be added to the list
      */
-    public LinkedList(Node head, Node tail) {
+    /*public LinkedList(Node head, Node tail) {
         this.head = head;
         this.tail = tail;
         this.numElements = 0;
-    }
+    }*/
 
     /**
      *
@@ -99,6 +100,10 @@ public class LinkedList {
             throw new IllegalArgumentException("Wrong stop that");
         }
 
+        if (numElements >= maxSize) {
+            throw new IndexOutOfBoundsException("Max size oh list reached");
+        }
+
         Node newNode = new Node(toBeAdded);
 
         if (head == null) {
@@ -131,6 +136,12 @@ public class LinkedList {
         return tail.getData();
     }
 
+    public LinkedList(Node head, Node tail, int max) {
+        this.head = head;
+        this.tail = tail;
+        this.numElements = 0;
+        this.maxSize = max;
+    }
 
     protected static class Node {
         private Song data;
