@@ -11,19 +11,39 @@ public class LinkedList {
     private Node tail;
     private int numElements;
 
+    /**
+     * default constructor
+     */
     public LinkedList() {
     }
 
+    /**
+     *
+     * parameterized constructor
+     *
+     * @param head the first node to be added to the list
+     * @param tail the last node to be added to the list
+     */
     public LinkedList(Node head, Node tail) {
         this.head = head;
         this.tail = tail;
         this.numElements = 0;
     }
 
+    /**
+     *
+     * @return int of the number of elements in the list
+     */
     public int size(){
         return numElements;
     }
 
+    /**
+     * gets the Song at a spesified position
+     *
+     * @param pos position to be got at
+     * @return the song at the index of pos
+     */
     public Song get(int pos){
         if(pos < 0 || pos >= numElements){
             // If validation fails, throw an exception
@@ -37,6 +57,12 @@ public class LinkedList {
         return current.getData();
     }
 
+    /**
+     * Finds the index of the specified Song in the list
+     *
+     * @param toBeFound The Song to find in the list.
+     * @return The index of the specified Song, or -1 if not found
+     */
     public int indexOf(Song toBeFound){
         Node current = head;
         int count = 0;
@@ -63,6 +89,11 @@ public class LinkedList {
         numElements++;
     }*/
 
+    /**
+     *Adds a Song to the end of the list
+     *
+     * @param toBeAdded Song to be added
+     */
     public void add(Song toBeAdded) {
         if (toBeAdded == null) {
             throw new IllegalArgumentException("Wrong stop that");
@@ -79,6 +110,27 @@ public class LinkedList {
         }
         numElements++;
     }
+
+    /**
+     * Tells if the list is empty or not
+     * @return true if empty or false if not
+     */
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    /**
+     * Retrieves the last element (tail) of the list
+     *
+     * @return The last element of the list, or null if the list is empty.
+     */
+    public Song tail() {
+        if (tail == null) {
+            return null;
+        }
+        return tail.getData();
+    }
+
 
     protected static class Node {
         private Song data;
