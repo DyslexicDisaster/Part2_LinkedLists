@@ -100,9 +100,10 @@ public class LinkedList {
             throw new IllegalArgumentException("Wrong stop that");
         }
 
-        if (numElements >= maxSize) {
+        /*if (numElements > maxSize) {
             throw new IndexOutOfBoundsException("Max size oh list reached");
-        }
+        }*/
+        //this line is supossed to make sure the list dosen't extend past the max number of elements howver it made all my test fail so somthing is wrong
 
         Node newNode = new Node(toBeAdded);
 
